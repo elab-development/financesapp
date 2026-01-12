@@ -13,7 +13,7 @@ class WalletController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index() //GET metoda
+    public function index() 
     {
         return WalletResource::collection(Wallet::all());
     }
