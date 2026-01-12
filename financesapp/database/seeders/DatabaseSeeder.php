@@ -3,8 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Wallet;
+use App\Models\Category;
+use App\Models\Transaction;
+use App\Models\Transfer;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Symfony\Component\Translation\Extractor\Visitor\TransMethodVisitor;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +20,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+       
+        $this->call([
+            UserSeeder::class,
+        ]);   
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+       Wallet::factory(10)->create();
+       Category::factory(30)->create();
+        Transaction::factory(100)->create();
+        Transfer::factory(50)->create();
+
     }
 }

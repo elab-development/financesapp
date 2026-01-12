@@ -3,10 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Transfer extends Model
 {
     protected $table = 'transfers';
+    use HasFactory;
     
     protected $fillable = [
         'user_id',
