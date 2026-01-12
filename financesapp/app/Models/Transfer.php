@@ -8,10 +8,13 @@ class Transfer extends Model
 {
     protected $fillable = [
         'user_id',
-        'wallet_id',
         'amount',
         'date',
         'description',
+        'wallet_fromid',
+        'wallet_toid',
+        'currency',
+        'comission',
 
     ];
 
@@ -19,4 +22,16 @@ class Transfer extends Model
         'amount' => 'decimal:2',
         'date' => 'date',
     ];
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function walletFrom() {
+        return $this->belongsTo(Wallet::class, 'wallet_fromid');
+    }
+
+    public function walletTo() {
+        return $this->belongsTo(Wallet::class, 'wallet_toid');
+    }
 }

@@ -22,9 +22,21 @@ class Wallet extends Model
         'current_state' => 'decimal:2'
     ];
 
-    
-    //public function user() : User {}
 
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 
+    public function transactions(){
+        return $this->hasMany(Transaction::class, 'wallet_id');
+    }
+
+    public function transferFrom() {
+        return $this->hasMany(Transfer::class, 'wallet_fromid');
+    }
+
+    public function transferTo() {
+        return $this->hasMany(Transfer::class, 'wallet_toid');
+    }
 
 }

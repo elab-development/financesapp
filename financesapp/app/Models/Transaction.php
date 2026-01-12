@@ -22,4 +22,20 @@ class Transaction extends Model
         'amount' => 'decimal:2',
         'date' => 'date',
     ];
+
+
+    public function user() {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function wallet() {
+        return $this->belongsTo(Wallet::class, 'wallet_id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
+
+
 }
