@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('type', ['inflow', 'outflow']);
             $table->decimal('amount', 15, 2);
             $table->date('date');
-            $table->string('description')->nullable();
+            $table->string('description');
 
 
             $table->timestamps();

@@ -13,13 +13,13 @@ return new class extends Migration
     {
         Schema::create('wallets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('user_id');
             $table->string('name');
             $table->enum('type', ['bank', 'cash', 'savings', 'crypto', 'other'])->default('other');
             $table->string('currency', 3)->default('RSD');
             $table->decimal('initial_state', 15, 2)->default(0);
             $table->decimal('current_state', 15, 2)->default(0);
-            $table->boolean('active')->default(true);
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }

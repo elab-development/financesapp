@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('type', ['inflow', 'outflow']);
             $table->foreignId('parent_id')->nullable()->constrained('categories')->nullOnDelete();
 
-            $table->boolean('active')->default('true');
+            $table->boolean('active')->default(1);
             $table->timestamps();
         });
     }
